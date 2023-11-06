@@ -25,6 +25,8 @@ func Calculate() http.HandlerFunc {
 			return
 		}
 		inputData.CalculatePercentToHitMaxContribution()
-		json.NewEncoder(w).Encode(inputData)
+		responseData := inputData.BuildPercentResponse()
+
+		json.NewEncoder(w).Encode(responseData)
 	}
 }
